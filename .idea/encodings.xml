@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/android/notepad/TimeSetDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/android/notepad/alert/AlarmReceiver.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/android/notepad/alert/AlertDialogActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/android/notepad/alert/Utils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/border_edit.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/fillet_shape.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/title_color.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

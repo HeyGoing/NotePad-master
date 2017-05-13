@@ -1,0 +1,178 @@
+-- Merging decision tree log ---
+manifest
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:22:1-136:12
+	package
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:23:5-42
+		INJECTED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml
+		INJECTED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:22:11-69
+uses-sdk
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:25:5-44
+	android:targetSdkVersion
+		INJECTED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml
+		INJECTED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:25:15-41
+		INJECTED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml
+		INJECTED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:27:5-75
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:27:22-72
+uses-permission#android.permission.WAKE_LOCK
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:28:5-68
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:28:22-65
+application
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:30:5-134:19
+	android:label
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:32:9-41
+	android:icon
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:30:18-52
+	android:theme
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:31:9-56
+provider#com.example.android.notepad.NotePadProvider
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:33:9-37:20
+	android:authorities
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:34:13-62
+	android:exported
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:33:19-49
+grant-uri-permission
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:36:13-62
+	android:pathPattern
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:36:35-59
+activity#com.example.android.notepad.NotesList
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:39:9-58:20
+	android:label
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:41:13-53
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:39:19-43
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:42:13-45:29
+action#android.intent.action.MAIN
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:43:17-69
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:43:25-66
+category#android.intent.category.LAUNCHER
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:44:17-77
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:44:27-74
+intent-filter#android.intent.action.EDIT+android.intent.action.PICK+android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:46:13-52:29
+action#android.intent.action.VIEW
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:47:17-69
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:47:25-66
+action#android.intent.action.EDIT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:48:17-69
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:48:25-66
+action#android.intent.action.PICK
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:49:17-69
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:49:25-66
+category#android.intent.category.DEFAULT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:50:17-76
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:50:27-73
+data
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:51:17-83
+	android:mimeType
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:51:23-80
+intent-filter#android.intent.action.GET_CONTENT+android.intent.category.DEFAULT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:53:13-57:29
+action#android.intent.action.GET_CONTENT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:54:17-76
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:54:25-73
+activity#com.example.android.notepad.NoteEditor
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:60:9-86:20
+	android:screenOrientation
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:62:13-47
+	android:configChanges
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:63:13-63
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:60:19-44
+intent-filter#android.intent.action.EDIT+android.intent.action.VIEW+android.intent.category.DEFAULT+com.android.notepad.action.EDIT_NOTE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:67:13-73:29
+	android:label
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:67:28-64
+action#com.android.notepad.action.EDIT_NOTE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:70:17-79
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:70:25-76
+intent-filter#android.intent.action.INSERT+android.intent.action.PASTE+android.intent.category.DEFAULT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:79:13-84:29
+action#android.intent.action.INSERT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:80:17-71
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:80:25-68
+action#android.intent.action.PASTE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:81:17-70
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:81:25-67
+activity#com.example.android.notepad.TitleEditor
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:88:9-113:20
+	android:label
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:89:13-53
+	android:windowSoftInputMode
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:92:13-55
+	android:icon
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:90:13-50
+	android:theme
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:91:13-61
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:88:19-45
+intent-filter#android.intent.category.ALTERNATIVE+android.intent.category.DEFAULT+android.intent.category.SELECTED_ALTERNATIVE+com.android.notepad.action.EDIT_TITLE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:97:13-112:29
+	android:label
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:97:28-65
+action#com.android.notepad.action.EDIT_TITLE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:101:17-80
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:101:25-77
+category#android.intent.category.ALTERNATIVE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:106:17-80
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:106:27-77
+category#android.intent.category.SELECTED_ALTERNATIVE
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:109:17-89
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:109:27-86
+activity#com.example.android.notepad.MainActivity
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:115:9-49
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:115:19-47
+activity#com.example.android.notepad.NotesLiveFolder
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:117:9-123:20
+	android:label
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:117:50-90
+	android:icon
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:118:13-55
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:117:19-49
+intent-filter#android.intent.action.CREATE_LIVE_FOLDER+android.intent.category.DEFAULT
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:119:13-122:29
+action#android.intent.action.CREATE_LIVE_FOLDER
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:120:17-83
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:120:25-80
+activity#com.example.android.notepad.alert.AlertDialogActivity
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:125:9-126:58
+	android:theme
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:126:13-56
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:125:19-87
+receiver#com.example.android.notepad.alert.AlarmReceiver
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:128:9-132:20
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:128:19-81
+intent-filter#android.intent.action.ALARM
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:129:13-131:29
+action#android.intent.action.ALARM
+ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:130:17-69
+	android:name
+		ADDED from G:\xuefeng\2.0\NotePad-master\app\src\main\AndroidManifest.xml:130:25-67

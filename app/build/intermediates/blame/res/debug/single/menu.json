@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "G:\\xuefeng\\2.0\\NotePad-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "G:\\xuefeng\\2.0\\NotePad-master\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "G:\\xuefeng\\2.0\\NotePad-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\editor_options_menu.xml",
+        "source": "G:\\xuefeng\\2.0\\NotePad-master\\app\\src\\main\\res\\menu\\editor_options_menu.xml"
+    },
+    {
+        "merged": "G:\\xuefeng\\2.0\\NotePad-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\list_context_menu.xml",
+        "source": "G:\\xuefeng\\2.0\\NotePad-master\\app\\src\\main\\res\\menu\\list_context_menu.xml"
+    },
+    {
+        "merged": "G:\\xuefeng\\2.0\\NotePad-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\list_options_menu.xml",
+        "source": "G:\\xuefeng\\2.0\\NotePad-master\\app\\src\\main\\res\\menu\\list_options_menu.xml"
+    }
+]
