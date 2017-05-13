@@ -141,7 +141,7 @@
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E9%97%B9%E9%92%9F1.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E9%97%B9%E9%92%9F2.jpg" width="70%" /><br/>
    
-   由于闹钟代码较多，一下只列出调用部分代码，详细代码请看源码。
+   由于闹钟代码较多，以下只列出调用部分代码，详细代码请看源码。
 ```java    
        
        private void alertSet(){
