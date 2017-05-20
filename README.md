@@ -211,7 +211,7 @@
         android:width="2dp"
         android:color="#1E90FF"/>
 
-</shape>
+       </shape>
         
  ```
    
@@ -220,8 +220,19 @@
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E5%88%86%E4%BA%AB1.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E5%88%86%E4%BA%AB2.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E5%88%86%E4%BA%AB3.jpg" width="70%" /><br/>
+   
+   **分享其实算是比较简单，我们设置好点击事件后，通过获取当前选中的note的内容（mCursor.getString(1)即为我们要获取的内容），然后将其分享到我们想要分享的应用** 
    
 ```java    
+
+       Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), info.id);
+        Cursor mCursor = managedQuery(
+                noteUri,         // The URI that gets multiple notes from the provider.
+                PROJECTION2,   // A projection that returns the note ID and note content for each note.
+                null,         // No "where" clause selection criteria.
+                null,         // No "where" clause selection values.
+                null          // Use the default sort order (modification date, descending)
+        );
    
         Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("text/plain");
@@ -235,8 +246,49 @@
    在编辑note界面，可以选择设置闹钟通知**（锁屏情况下也能够通知），通过AlarmManager来实现**。具体**效果**和**代码**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E9%97%B9%E9%92%9F1.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E9%97%B9%E9%92%9F2.jpg" width="70%" /><br/>
+   **首先需要添加权限**
+```java    
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+        
+```
+   **接下来我们定义设置时间的布局（如图一）** 
+```java    
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <Button 
+        android:id="@+id/dateButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+        <TimePicker 
+            android:id="@+id/timePicker"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button 
+                android:id="@+id/positiveButton"
+                android:layout_weight="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设定"/>
+            <Button 
+                android:id="@+id/negativeButton"
+                android:layout_weight="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"/>
+        </LinearLayout>
+</LinearLayout>
+        
+```
    
-   由于闹钟代码较多，以下只列出调用部分代码，详细代码请看源码。
+   **由于业务逻辑较为复杂且代码较多，包括使用TimePicker、Calendar对象设置操作时间，源码已将有关闹钟相关代码放在alert文件夹中。下面我们直接看闹钟的调用**
 ```java    
        
        private void alertSet(){
@@ -245,15 +297,121 @@
         PendingIntent pendingIntent = PendingIntent.getBroadcast(NoteEditor.this, 0, intent, 0);
         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(), pendingIntent);
-        //setRepeating()这里第二个参数不能设置成现在时间，否则闹钟会设置完就开启
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),(24 * 60 * 60 * 1000), pendingIntent);
     }
     
  ```
+  **当闹钟响起时（图二），可以选择查看进入NotePad或忽略此闹钟**
+  ```java    
+       
+    public void onClick(DialogInterface dialog, int which) {
+     // TODO Auto-generated method stub
+     switch(which){
+     case DialogInterface.BUTTON1:
+     {
+      Intent intent = new Intent(AlertDialogActivity.this, NotesList.class);
+      startActivity(intent);
+      finish();
+     }
+     case DialogInterface.BUTTON2:
+     {
+      mWakelock.release();
+      player.stop();
+      finish();
+     }
+      }
+   }
+    
+ ```
  
  *    **7、简单画图** <br/>
-   在编辑note界面中可以选择画图功能，可以保存至系统文件夹，但目前只支持简单画图。**主要利用Canvas的drawLine（）方法和Android提供的Path（）类，还利用了“双缓冲”技术来保存之前绘制的内容**。具体**效果**如下：<br/>
+   在编辑note界面中可以选择画图功能，可以保存至系统文件夹，但只支持简单画图。**主要利用Canvas的drawLine（）方法和Android提供的Path（）类，还利用了“双缓冲”技术来保存之前绘制的内容**。具体**效果**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E7%94%BB%E5%9B%BE.jpg" width="70%" /><br/>
+   **首先创建DisplayMetrics对象并获取宽高**
+ ```java    
+    DisplayMetrics displayMetrics = new DisplayMetrics();
+        // 获取创建的宽度和高度
+        getWindowManager().getDefaultDisplay()
+                .getRealMetrics(displayMetrics);
+        
+```
+ **初始化baseBitmap对象**
+ ```java    
+   baseBitmap = Bitmap.createBitmap(displayMetrics.widthPixels, displayMetrics.heightPixels, Bitmap.Config.ARGB_8888);
+        
+```
+ **创建画布并设置背景为灰色**
+ ```java    
+    // 创建一张画布
+        canvas = new Canvas(baseBitmap);
+        // 画布背景为灰色
+        canvas.drawColor(Color.GRAY);
+        
+```
+ **创建并设置画笔属性**
+ ```java    
+    paint = new Paint(Paint.DITHER_FLAG);
+        paint.setColor(Color.RED);
+        // 设置画笔风格
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(1);
+        // 反锯齿
+        paint.setAntiAlias(true);
+        paint.setDither(true);
+        
+```
+ **接下来是重点，先将设置Imagview为我们刚刚创建的baseBitmap对象，然后设置Imageview的触摸事件**
+ ```java    
+    iv.setImageBitmap(baseBitmap);
+
+        iv.setOnTouchListener(new View.OnTouchListener() {
+            int startX;
+            int startY;
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // 获取手按下时的坐标
+                        startX = (int) event.getX();
+                        startY = (int) event.getY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        // 获取手移动后的坐标
+                        int stopX = (int) event.getX();
+                        int stopY = (int) event.getY();
+                        // 在开始和结束坐标间画一条线
+                        canvas.drawLine(startX, startY, stopX, stopY, paint);
+                        // 实时更新开始坐标
+                        startX = (int) event.getX();
+                        startY = (int) event.getY();
+                        iv.setImageBitmap(baseBitmap);
+                        break;
+                }
+                return true;
+            }
+        });
+        
+```
+ **至此，画图功能完成，我们将其保存至文件夹**
+ ```java    
+    try {
+            File file = new File(Environment.getExternalStorageDirectory(),
+                    111+ ".jpg");
+            OutputStream stream = new FileOutputStream(file);
+            baseBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            stream.close();
+            mContext.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(Environment
+                    .getExternalStorageDirectory())));
+
+            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+        
+```
+
+ 
    
 
 
