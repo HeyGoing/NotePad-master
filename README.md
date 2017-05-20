@@ -89,7 +89,7 @@
   *    **2、时间** <br/>
    **在创建或修改note时，通过获取系统时间并更新sqlite中相应note的时间**。具体**效果**和**代码**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" width="70%" /><br/>
-      **首先是搜索的布局,这边使用的控件是EditText** 
+      **Listview中item布局如下：** 
 
  ```java    
    
@@ -194,7 +194,7 @@
    **通过修改控件、背景等对UI界面起到一定程度美化**。具体**效果**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E7%BC%96%E8%BE%91.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" width="70%" /><br/>
-   **界面稍微做了一点点的美化，主要有android:theme="@android:style/Theme.Holo.Light"和noteList对应的界面。 **</br>
+ 
    **这里可能有些同学会觉得奇怪，为什么noteList界面是黑色的，而noteEditor却是白色的？其实这边noteEditor设置了theme为白色，而noteList并未设置，只使用系统默认的，因此为了统一风格，我们只需要在AndroidManifest中的application下添加如下代码** 
   ```java    
    
