@@ -13,6 +13,36 @@
       在搜索框中输入想要查找的笔记的标题，自动匹配符合条件的笔记并显示，主要**通过添加EditText的文本改变的监听器**来实现的，具体**效果**和**代码**如下：<br/>
       <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E6%90%9C%E7%B4%A2.jpg" width="70%" /> <br/>
       
+   **首先是搜索的布局,这边使用的控件是EditText**
+
+ ```java    
+   
+         <EditText
+        android:id="@+id/edt"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="6dp"
+        android:drawableLeft="@drawable/search_icon"
+        android:drawablePadding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="#000"
+        android:background="@drawable/search_edittext_shape"
+        android:textSize="16sp"
+        android:hint="请输入关键字"/>
+        
+ ```
+   **我们知道，普通EditText样式不会是上图的搜索框那样，因此我们要设置一个shape作为EditText的背景，即这一句：android:background="@drawable/search_edittext_shape"，search_edittext_shape的代码如下**
+ ```java    
+   
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+       <corners android:radius="14dp"/>
+       <stroke android:width="2dp" android:color="@color/darkgray"/>
+       <solid android:color="@color/color_white"/>
+       <padding android:top="8dp" android:bottom="8dp" android:left="5dp"/>
+</shape>
+ ``` 
+ **好了，定义完布局之后，我们就可以在代码中通过添加EditText的文本改变的监听器来模糊搜索我们想要搜索的note，即每当EditText的值发生改变时，我们都获取EditText的值并在数据库中匹配出符合条件的note，并将其显示**
+    
   ```java    
     //添加搜索栏editText控件文本变化监听器
         edt.addTextChangedListener(new TextWatcher() {
@@ -59,8 +89,26 @@
   *    **2、时间** <br/>
    **在创建或修改note时，通过获取系统时间并更新sqlite中相应note的时间**。具体**效果**和**代码**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" width="70%" /><br/>
+      首先是搜索的布局,这边使用的控件是EditText
+
+ ```java    
    
+         <EditText
+        android:id="@+id/edt"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="6dp"
+        android:drawableLeft="@drawable/search_icon"
+        android:drawablePadding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="#000"
+        android:background="@drawable/search_edittext_shape"
+        android:textSize="16sp"
+        android:hint="请输入关键字"/>
+        
+ ```
    
+
 ```java    
    
         SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd   HH:mm:ss");
