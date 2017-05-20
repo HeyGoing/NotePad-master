@@ -89,33 +89,55 @@
   *    **2、时间** <br/>
    **在创建或修改note时，通过获取系统时间并更新sqlite中相应note的时间**。具体**效果**和**代码**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" width="70%" /><br/>
-      首先是搜索的布局,这边使用的控件是EditText
+      **首先是搜索的布局,这边使用的控件是EditText** 
 
  ```java    
    
-         <EditText
-        android:id="@+id/edt"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="6dp"
-        android:drawableLeft="@drawable/search_icon"
-        android:drawablePadding="5dp"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/app_notes"
+        android:id="@+id/imageView" />
+
+
+
+    <TextView
+        android:layout_marginTop="7dp"
+        android:id="@+id/txt1"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:textColor="#000"
-        android:background="@drawable/search_edittext_shape"
-        android:textSize="16sp"
-        android:hint="请输入关键字"/>
+        android:layout_height="60dp"
+        android:text="ascdefg"
+        android:textSize="25dp"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView" />
+    <TextView
+        android:layout_marginTop="45dp"
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:text="2017-4-18 14:38"
+        android:layout_toRightOf="@+id/imageView" />
+
+
+</RelativeLayout>
         
  ```
    
+   **接下来就是如何调用系统的时间了并设置时间格式（代码已给出注释），当然，这部分代码只在创建note、修改note或修改title时才被调用**
 
 ```java    
    
-        SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd   HH:mm:ss");
-        Date curDate =  new Date(System.currentTimeMillis());
-        String   time   =   formatter.format(curDate);
-        values.put(NotePad.Notes.COLUMN_NAME_CREATE_DATE, time);
-        
+        SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd   HH:mm:ss");//设置时间格式
+        Date curDate =  new Date(System.currentTimeMillis());//获取当前系统时间
+        String   time   =   formatter.format(curDate);//将当前时间转换为设置的格式
+        values.put(NotePad.Notes.COLUMN_NAME_CREATE_DATE, time);//插入数据库中
  ```
  
  *    **3、背景更改** <br/>
@@ -123,8 +145,13 @@
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E8%83%8C%E6%99%AF1.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E8%83%8C%E6%99%AF2.jpg" width="70%" /><br/>
    
+   **我们知道， SharedPreferences可以用来存储一些简单参数，因此使用SharedPreferences来存储背景最适合不过，所以先创建一个SharedPreferences对象**
+ ```java    
    
-```java    
+         private SharedPreferences bac ;
+ ```
+   **接下来创建一个对话框并添加一些颜色以供选择，代码中的imageview的onClick事件，用于设置背景并将该背景保存至SharedPreferences** 
+```java    
    
          AlertDialog.Builder builder=new AlertDialog.Builder(NotesList.this);
                 LayoutInflater inflater=getLayoutInflater();
@@ -145,8 +172,8 @@
                     imageView.setLayoutParams(new LinearLayout.LayoutParams(143,180));
                     imageView.setBackgroundColor(colorArray[i]);
                     final int finalI = i;
-                    imageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
+                    imageView.setOnClickListener(new View.OnClickListener() {//设置点击事件
+                    @Override
                         public void onClick(View v) {
                             NoteAttribute.snoteBackground=colorArray[finalI];
                             listview.setBackgroundColor(NoteAttribute.snoteBackground);
