@@ -194,6 +194,26 @@
    **通过修改控件、背景等对UI界面起到一定程度美化**。具体**效果**如下：<br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E7%BC%96%E8%BE%91.jpg" width="70%" /><br/>
    <img src="https://github.com/HeyGoing/NotePad-master/blob/master/photos/%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" width="70%" /><br/>
+   **界面稍微做了一点点的美化，主要有android:theme="@android:style/Theme.Holo.Light"和noteList对应的界面。 **</br>
+   **这里可能有些同学会觉得奇怪，为什么noteList界面是黑色的，而noteEditor却是白色的？其实这边noteEditor设置了theme为白色，而noteList并未设置，只使用系统默认的，因此为了统一风格，我们只需要在AndroidManifest中的application下添加如下代码** 
+  ```java    
+   
+       android:theme="@android:style/Theme.Holo.Light"
+        
+ ```
+    **noteEditor中文本编辑框被美化为蓝色（其实看起来有点丑），也是设置了editext的bacground属性**
+  ```java    
+   
+       <shape xmlns:android="http://schemas.android.com/apk/res/android" >
+       <corners android:radius="10px"/>
+       <padding android:left="3dip" android:top="3dip" android:right="3dip" android:bottom="3dip"/>
+       <stroke
+        android:width="2dp"
+        android:color="#1E90FF"/>
+
+</shape>
+        
+ ```
    
  *    **5、分享** <br/>
    选择某一条note，点击可将**内容分享至其他应用，使用Intent.ACTION_SEND来实现**。具体**效果**和**代码**如下：<br/>
